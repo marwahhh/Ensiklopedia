@@ -14,6 +14,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -24,6 +26,9 @@ public class PencarianActivity extends AppCompatActivity implements View.OnClick
     private List<String> listJudul = new ArrayList<>();
     private RecyclerView recyclerView;
     private PencarianAdapter pencarianAdapter;
+    TextView viewTextJudul = (TextView) findViewById(R.id.judul_pencarian);
+    EditText viewTextCari = (EditText) findViewById(R.id.text_input_cari);
+    String textJudul;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +37,9 @@ public class PencarianActivity extends AppCompatActivity implements View.OnClick
 
         View buttonBack = findViewById(R.id.button_back);
         buttonBack.setOnClickListener(this);
+
+        textJudul = String.valueOf(viewTextCari.getText());
+        viewTextCari.setText(textJudul);
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view_cari);
 

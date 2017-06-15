@@ -8,9 +8,12 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity implements View.OnClickListener, View.OnTouchListener{
+
+    public String textInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +50,7 @@ public class MainActivity extends Activity implements View.OnClickListener, View
                     Context context = getApplicationContext();
                     Toast.makeText(context, "Silahkan Masukkan Inputan", Toast.LENGTH_SHORT).show();
                 } else {
+                    textInput = String.valueOf(textInputCari.getText());
                     Intent k = new Intent(this, PencarianActivity.class);
                     startActivity(k);
                 }
